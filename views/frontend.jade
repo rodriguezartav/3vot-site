@@ -1,0 +1,92 @@
+extends layout
+
+block content
+  
+  .container
+    .row
+      h1 The Frontend
+      h3 A robust app building engine
+  
+    .row.fullHeight.relative
+      .col-12.col-lg-3.sideBar.fullHeight
+        h2 Sidebar
+        ul
+          li 
+            a Overview
+            ul
+              li 
+                a Front End Server
+              li 
+                a Grunt
+              li 
+                a Build
+                
+              li
+                a Deployment
+          li 
+            a First Steps
+            ul
+              li 
+                a Initial Setup
+              li 
+                a Build an App
+              li 
+                a Configuration
+              li 
+                a Deployment
+
+
+      .col-8
+        div#overview.section
+          h2 Overview
+          h4 By extensively using open source components and libraries the experience and best practices of the most engaging community in the world is applied right here.
+          
+          p With Appbot frontend we can build, test and deploy apps in a simple manner. We can build and pack user-facing apps in a professional manner, this documentation hopes to provide the guidelines for such endevour.
+         
+          h3#overview-frontendserver Frontend Server
+          p The Frontend or user facing component that runs on web or mobile devices is an standalone server that's used to build and deploy applications. Most of the application's code is served from precompiled CDN resources, apps connect directly to the API Server.
+            
+          p The Appbot frontend server is used to build locally on development boxes, test and deploy changes to a master repository.
+          
+          p A minimal part of the application could need dynamic routes or build process, on this case the frontend server would be able to resolve public requests.
+         
+          h3#overview-grunt Grunt
+          
+          p Grunt has becomed a corner stone of every frontend developer's build process. Appbot's Frontend Server uses Custom and Open Source Grunt Tasks to run, build, test and deploy applications with extreme simplicity.
+         
+          p By using grunt tasks we can run the server with preloaded environment variables, setup watchers to compile our pre-processors and live reload our development browsers, perform unit, functional and integration testing and finally perform smart deployments to CDN's and frontend servers.
+         
+          h3#overview-build Build
+          p The way we structure our application in order to reduce it's size and load times is the most important factor of them all. You can have a great application, but if it takes too long to load, users are not going to wait to see it.
+          
+          p Different Versions of the application can be build for different devices like Mobile and Tablets, or for different user profiles like Administrator, Internal Users, Customers or even for completely different applications.
+          
+          p Not all code must be provided to devices at load-time, several less critical functionality can be loaded when it's required. The build process and Frontend Server allows for On-Demand loading of application components. This means that certain parts of the application can be requested after the application starts.
+          
+          p When developing application on you local environments, grunt tasks are constantly compiling all the changes that are made to the application, style changes can even be pushed on realtime to the browser.
+          
+          p When it's time to integrate changes or upgrades with the main code repository a separate build process is executed remotely. 
+          
+          h3#overview-test Testing
+          p Appbot recomends Test Driven Development, which means to write a test first, then watch it fail. After failing, write the code to make the test pass. This way 100% of code is unit tested.
+          
+          p Grunt tasks are also provide to automate testing of code changes on real time, by using grunt watchers any change to tests are compiled ( if written on Coffeescript ) and runned, results are shown either on the Terminal Window or on Growl/Similar.
+          
+          
+          p Before deploying Appbot's frontend server precompiles, concatenates and minify all assets, performing unit tests followed by headless browser integration and funtional tests.
+          
+          h3#overview-deployment Deployment
+          
+          p Once local testing and building is complete, the code is sent to a remote repository and automated integration facility. Here code from all developers is integrated and tested against the live repository.
+          
+          p If all test pass, green light is given to deploy upgrades to a testing server. On the testing server, automated browser tests are provided and if tests pass upgrades are finally deployed to a staging server with live data in order to perform User Testing.
+          
+          p Periodically, staging enviroments are deployed to production enviroments in order to finally send code to live servers.
+          
+          
+          
+          
+          
+          
+          
+         

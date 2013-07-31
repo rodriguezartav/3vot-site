@@ -1,0 +1,116 @@
+extends layout
+
+block content
+  
+  .container
+    .row
+      h1 Welcome
+      h3 AppBot
+  
+    .row.fullHeight.relative
+      .col-12.col-lg-3.sideBar.fullHeight
+        h2 Sidebar
+        ul
+          li 
+            a Overview
+            ul
+              li 
+                a Enviroment
+              li 
+                a Components
+              li 
+                a Use Cases
+          li 
+            a First Steps
+            ul
+              li 
+                a Initial Setup
+              li 
+                a Build an App
+              li 
+                a Configuration
+              li 
+                a Deployment
+
+
+      .col-8
+        div#overview.section
+          h2 Overview
+          h4 Appbot build this Enterprise Platform so that our organisation can customise it to our needs. 
+          p The enterprise plataform consists of a web/mobile App called Frontend, and central server that contains all the platform logic and business rules called an Api Server, a Database and Server Infrasctructure called Cloud Services that rely on Amazon Web Services.
+      
+          p The Enterprise System runs on Amazon Web Services, it's a high availability and auto-scaling solution; It's an ultra powerfull infrastructure that's also 100% customizable.
+      
+        div#Enviroment.section
+          h2 Enviroment
+          p Appbot enviroment is based on the language Javascript and uses <a href="nodejs.org">NodeJS</a> in the Frontend and the Backend layer of the platform. The development environment requires the following libraries/programs installed.
+          ul
+            li Ruby > 1.9.3
+            li NodeJS (NPM) > 8.0.0
+            li MYSQL/Postgres Local Database
+            li Amazon CLI
+      
+          p It's simpler to develop on a unix based system like Linux or MacOS, however most task can be completed from a windows machine; Familiarity with Unix Command Line it's also required since much task in the Frontend, Api Server and Amazon Infrasctructure are all executed from the Command Prompt or Terminal.
+      
+      
+        div#Components.section
+          h2 Components
+          p Appbot creates several components necessary for the correct implementation of an Enterprise Platform or application.
+      
+          p The Frontend server that's used for development and allow us to create several applications for web & mobile.
+      
+          p Another important layer is the API Server that operates 100% on Javascript and based on Object Oriented Proven Patterns, since it's operated in the most popular language in the world; it should be simple to recruit team members to extend the API Server and Business Layer of the Plataform.
+      
+          p Amazon Web Services Infrastructure is a Cloud Solution were we host our platform and allow us to power up and down our requirements ( paying only for what we use ) depending on the load or amount of visitors per second.
+
+        div#UseCases.section
+          h2 Use Cases
+          p Appbot creates and connects all necessary components, there are many uses cases than can be implemented with the platform created by Appbot, we will review some of them
+      
+          ul
+            li
+              a Landing Page
+              p A landing page seems trivial, however using Appbot you can build a highly avaiable and scalable landing page than can handle thousands of visitors per second and provide with the infrastructure to grow horizontally ( more visitors ) or vertically ( build apps ).
+            li
+              a E-Commerce
+              p Doing business online is great! With the Appbot platform is even better because we get a highly available and ultra scalable platform with all the e-services from Amazon, with the benefit that this is a it's 100% customizable platform;
+            li
+              a Public Web/Mobile Application
+              p There are thousands of web and mobile apps, Appbots builds a platform where you can build any of them. With the added benefit that we innovated a way to build a separate web and mobile while sharing the construction process between both
+            li
+              a Private App Store
+            li 
+              a All of the above
+
+
+        div#FirstsSteps.section
+          h2 First Steps
+          p In order to run the platform on our team's local development computers there are several steps that we must take. We'll start with the Frontend part, then the Api Server and Database and finally deployment of changes to 
+      
+
+        div#Conventions.section
+          .title Conventions and Rules
+          p Conventions are really important to keep cohesion and to make everybodies work easier. By following this rules your team mates will love to work with you. 
+      
+          ul
+            li 
+              h5 Frontend Conventions
+            li 
+              h5 Api Server Conventions
+            li 
+              h5 Amazon Conventions
+    
+      
+        div#DevelopmentProcess.section
+          h2 Development Process
+          p The Development of Enterprise Systems must be test driven, this means that we must write test to prove that 100% of our code works appropriately. The simplest way to achieve that is to write the test first, watch it fail and the write the code that makes it pass. This is called Test Driven Development.
+      
+          p We'll write unit test for all of the code we write. This is a unit test case/file for each file that we write for our platform. A 1 to 1 Relationship of 100% tested code.
+      
+          p Integration and Functional Test are those that test the relationships between moving parts. These too are requiered before deploying code to the Server for Staging or Production.
+      
+          h5 Enviroments
+          p There are several enviroments, development is the local enviroment on each developers box. Testing is an automated enviroment where tests are run after any team member commits code to the main repository. Staging is a midway server that works with live data and were code is deployed to perform final tests. Production is the final and most important enviroment, where the actual platform runs.
+      
+       
+    
