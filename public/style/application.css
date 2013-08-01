@@ -4129,18 +4129,21 @@ li {
 .sideBar ul li > ul li {
   font-size: 14px;
 }
-.section {
+.mainContent {
   margin-bottom: 30px;
 }
-.section h2 {
+.mainContent h2 {
   color: #555;
   margin: 0px;
   border-bottom: 1px solid #efefef;
   padding-bottom: 10px;
   margin-bottom: 14px;
 }
-.section h2 + h3,
-.section h2 + h4,
-.section h2 + h5 {
+.mainContent h2 + h3,
+.mainContent h2 + h4,
+.mainContent h2 + h5 {
   margin-top: 0px;
+}
+.mainContent p:last-child {
+  margin-bottom: 30px;
 }
