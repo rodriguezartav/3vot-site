@@ -2,3 +2,7 @@ language: node_js
 node_js:
   - "0.10"
   - "0.8"
+deploy:
+  provider: heroku
+  api_key: 02c1f6c9eef107695be651a70952dca8588f4bd6
+  app: rodco-appbot-doc
