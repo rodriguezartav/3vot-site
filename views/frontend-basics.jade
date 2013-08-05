@@ -2,38 +2,12 @@ extends layout
 
 block content
   
-  .container
-    .row
-      h1 The Frontend Basics
-      h3 A robust app building engine
+  .breadcrum
+    .title The Frontend Basics
+    .sub-title A robust app building engine
   
-    .row.fullHeight
+  aside
       .col-12.col-lg-3.sideBar.fullHeight
-        h2 Sidebar
-        ul
-          li 
-            a Overview
-            ul
-              li 
-                a Front End Server
-              li 
-                a Grunt
-              li 
-                a Build
-                
-              li
-                a Deployment
-          li 
-            a First Steps
-            ul
-              li 
-                a Initial Setup
-              li 
-                a Build an App
-              li 
-                a Configuration
-              li 
-                a Deployment
 
       .col-8.mainContent
         h2 Decisions
@@ -46,7 +20,7 @@ block content
         
         h4 Follow our documentation to get an understanding of the concepts before forking towards other solutions.
         
-        h2 CommonJS
+        h3 CommonJS
         p Modular Apps are the solution to building large javascript apps, they also avoid polluting the global namespace and easily require external files into the program.
         
         p We use the CommonJS convention to build modular applications, there are other implementations like AMD. The build process and Grunt Tasks are setup for CommonJS, experienced teams may very well use Grunt Alternative Tasks for it's build process and App Structure.
@@ -63,7 +37,7 @@ block content
         code var Car = require("models/car")
         p A simple example
         
-        h2 Coffeescript
+        h3 Coffeescript
         p Most of the code is written in Coffeescript, this is another decision that can be changes with ease. Simply write files in javascript and you are good to go. Coffescript Files are compiled automatically before being concatenated ( CommonJS style  ) in a javascript file.
         
         p Using Coffeescript is a controversial decision, on the enterprise realm is very helpful due to the large scale of the code and the fact the Coffeescript simplifies object oriented programming.

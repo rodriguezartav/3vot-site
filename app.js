@@ -4,7 +4,6 @@
  */
 
 var express = require('express')
-  , routes = require('./routes')
   , http = require('http')
   , path = require('path')
   , fs = require("fs");
@@ -22,17 +21,15 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.categories = JSON.parse(fs.readFileSync("./articles.json")).categories
-
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-app.get('/p/:page', routes.views);
 
-
-http.createServer(app).listen(app.get('port'), function(){
+var server = http.createServer(app).listen(app.get('port'), function(){
+  app.server = server
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+module.exports = app;

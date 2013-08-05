@@ -2,144 +2,119 @@ extends layout
 
 block content
   
-  .container
-    .row
-      h1 The Frontend
-      h3 A robust app building engine
-  
-    .row.fullHeight
-      .col-12.col-lg-3.sideBar.fullHeight
-        h2 Sidebar
-        ul
-          li 
-            a Overview
-            ul
-              li 
-                a Front End Server
-              li 
-                a Grunt
-              li 
-                a Build
-                
-              li
-                a Deployment
-          li 
-            a First Steps
-            ul
-              li 
-                a Initial Setup
-              li 
-                a Build an App
-              li 
-                a Configuration
-              li 
-                a Deployment
+  .constrained
 
-      .col-8.mainContent
-        h2 Overview
-        h4 By extensively using open source components and libraries the experience and best practices of the most engaging community in the world is applied right here.
-        
-        p With Appbot frontend we can build, test and deploy apps in a simple manner. We can build and pack user-facing apps in a professional manner, this documentation hopes to provide the guidelines for such endeavour.
+    .breadcrum
+      .title The Frontend Basics
+      .sub-title A robust app building engine
+
+    aside
+
+    article
+      h2 Overview
+      p The Frontend is the most magical and important piece of the Platform; here is where all the users will hang out and do all that wonderful stuff with your platform. It's a professional frontend in that sense that it uses the best practices for modern application development and deployment.
+    
+      h5 Appbot is amazing, it provides a professional workflow based on the Grunt Toolset of automated Tasks. 
+      
+      p With Appbot our development enviroment works for us, changes on code are compiled from Coffeescript, Less and Jade and compiled automatically. A complete and simple Unit/Functional and Integration Testing suite is integrated on the development process.
+      
+      p Best practices for Javascript and CSS Modular Development are baked into the development enviroment, so that it's not only easy to employ good programming technichs, but also that's cleatly better.
+      
+      h3 Javascript
+      p Actually the frontend is build with Coffeescript ( optional ) packed in CommonJS Modules (non-optional) and structured using the SpineJS Framework. This are hard decisions, we hope you trust us to show you why we believe this are good decisions that will make your development experience better.
+      
+      p With our Grunt Automated Build System called Grunt-Appbot-Compiler we create several apps that share a common code base. In case you want to create an app for web and a similar one for Mobile/Tablet. We can load Modules on Demand when they are required, rather than loading huge JS files at startup and making the user wait.
+      
+      p Creating a Javascript Package is simple, look at the ./GruntFile.coffee task for Grunt-Appbot-Compiler to see how it's done. It basically compiles and packs all files on a directory and it's subdirectories, concatenates it and publish it on the public folder ready to be used. This way we have complete flexibility on how we structure , build and load our apps.
+      
+      h3 CSS
+      p Actually the CSS is written with Less (optional) and it follows the best practices of CSS Design and Development, focusing on performance and maintance. We are sure you'll feel the benefits of the structure once you work with it.
+      
+      p We based our structure on the SMCASS Theory https://smacss.com/ , mixing a little of Object Oriented CSS from Nichole Sullivan CSS genius. It's important that we all are very familiar with it's concepts and understand why it's important to follow this best practices.
+      
+      h3 Components
+      p Actually the system is Component Based, there is no real use for isolated Javascript or CSS since every bit of code should be encapsulated on a Module. This methodology makes applications stable, maintainable and rock solid.
+      
+      p It's really comfortable to be able to work on the behavior, template and style of an application's component on the same folder. Being able to Unit Test Client Side Code and not worry about how that's compiled and sent to the browser.
+      
+      p Components are isolated and reusable, they are amazing and the way we have set them up on Appbot is great. Check out how components work on the folder app/components. 
+      
+      p Components must have a file called appbotComponent.json that sets the namespace of the component and other compile time options. Apps for a Private App Store behave just like components. Remember that components can be loaded on demand at anytime, not just during the initial load of the application.
+      
+      h3 Jade & Scout File
+      p It's important to read this: http://alexsexton.com/blog/2013/03/deploying-javascript-applications/ it explains what we are doing here.
+      
+      p Basically we compile every asset so that it does not require a Frontend Server and can be served from a CDN, we compile CSS, Javascript and Jade, we compile everything so that it can be cached.
+      
+      p Files on development end up on the public folder, on production they are deployed to S3 and hooked to a CloudFront CDN. Each time a build is created, a new bucket with the build number is created. Files inside this bucket are cached for 30 years.
+      
+      p HTML files are cached for 5 minutes, and they are automatically compiled to include the latest build number on the path of each asset it references. Check out ./public/index.html to see how it works on development. On Production all links contain the path of the build number. 
+      
+      p When the system is updated, html files are updated with the new build number and all files are uploades to the corresponding bucket in S3.
+      
+      p In this case we are using HTML files injected with a JS script that acts as a Scout File. This file could send the screen size and other browser features and specific content could be send for this specific device. Also on other "more dynamic" situations the scout file could be a individual .js file also cached for 5 minutes.
+      
+      h4 It's important to understand that all this process occur automatically and is based on Grunt Tasks.
+      
+      
+      h2 First Steps
+      p This is a complex system, we try to simplify it and make it super easy to get started. Follow this steps with enought time and and open mind for new concepts and unexpected problems. The system is based on Grunt, Coffeescript, Less and SpineJS Framework. All of them super documented, be sure to study them to make sure you understand what's going on.
+      
+      h3 Setup
+
+      p In order to setup the environment, developers should have the following dependencies pre-installed.
+
+      ul
+        li Ruby 1.9.3++ ( on Mac requires XCode or XCode CLT )
+        li NodeJS 0.8.0++ and NPM
+        li Text Editor
+        li Chrome Web Browser
+        li Grunt
+
+      h4 Developers should also have accounts with the following services
+      ul
+        li Amazon Web Services
+        li Github
+
+      h3 Getting the Code
+      p Once you are done, you must pull the master repository of the Appbot Platform your team is working one.
+      code git pull []
+    
+      p Install all necessary dependencies with npm from within the source code root folder.
+      code $ npm install .
+      p May require to use sudo 
+    
+      p Start the server and check http://localhost:3000
+      code $ grunt server
+    
+    
+      h3 About Testing
+      p Test are the most important part of the system
+      
+      h3 Writing Components
+      
+      h2 MVC Framework
+      p In order to work on a profesional enterprise application, developers should be highly experiences on MVC Frontend Frameworks, if not proces with much care understanding that at least three months of lossness and frustrations while learning lie ahead. Make sure you have enought time to study , read , watch screencast and practice on your own apps outside of Appbot since it's too complex for a junior developer to get started on.
+      
+      p The MVC Framework used is SpineJS, althou other frameworks can be used like BackboneJS and AngularJS as long as they are packed as CommonJS Modules. The compiler shipped with appbot is a firm believer of CommonJS. 
+      
+      p Instructions on how to write apps with SpineJS can be obtained on the SpineJS website and reading the book Developing Javascript Applications written by Alex Maccaw
+      
+      h3 Proprietary Framework
+      p Actually we are not using the standard SPineJS build, we rather fork it and maintain a version created for enterprise applications in mind. 
+      
+      
+      h2 Deploying
+      p When deploying to the master repository , and since we are using a CI system, you'll be upgrading automatically the testing server if all test pass on the CI System.
+      
+      p In order to deploy your code commit it to git, once you are ready to commit to master
+      code $grunt deploy
+      p Will build the production version and deploy the code to the server. If all tests pass, the contents of the ./public folder will be uploaded to S3 and all HTML files will be updated to the use the new build number bucket. This will take 5 minutes to take effect due to cache.
+      
+      
+      
        
-        h3 Frontend Server
-        p The Frontend or user facing component that runs on web or mobile devices is an standalone server that's used to build and deploy applications. Most of the application's code is served from precompiled CDN resources, apps connect directly to the API Server.
-          
-        p The Appbot frontend server is used to build locally on development boxes, test and deploy changes to a origin repository.
-        
-        p A minimal part of the application could need dynamic routes or build process, on this case the frontend server would be able to resolve public requests.
-       
-        h3 Grunt
-        
-        p Grunt has becomed a corner stone of every frontend developer's build process. Appbot's Frontend Server uses Custom and Open Source Grunt Tasks to run, build, test and deploy applications with extreme simplicity.
-       
-        p By using grunt tasks we can run the server with preloaded environment variables, setup watchers to compile our pre-processors and live reload our development browsers, perform unit, functional and integration testing and finally perform smart deployments to CDN's and frontend servers.
-       
-        h3 Build
-        p The way we structure our application in order to reduce it's size and load times is the most important factor of them all. You can have a great application, but if it takes too long to load, users are not going to wait to see it.
-        
-        p Different Versions of the application can be build for different devices like Mobile and Tablets, or for different user profiles like Administrator, Internal Users, Customers or even for completely different applications.
-        
-        p Not all code must be provided to devices at load-time, several less critical functionality can be loaded when it's required. The build process and Frontend Server allows for On-Demand loading of application components. This means that certain parts of the application can be requested after the application starts.
-        
-        p When developing application on you local environments, grunt tasks are constantly compiling all the changes that are made to the application, style changes can even be pushed on realtime to the browser.
-        
-        p When it's time to integrate changes or upgrades with the main code repository a separate build process is executed remotely. 
-        
-        h3 Testing
-        p Appbot recomends Test Driven Development, which means to write a test first, then watch it fail. After failing, write the code to make the test pass. This way 100% of code is unit tested.
-        
-        p Grunt also provide tasks to automate testing of code changes on real time, by using grunt watchers any change to tests are compiled ( if written on Coffeescript ) and runned, results are shown either on the Terminal Window or on Growl/Similar.
-        
-        p Before deploying Appbot's frontend server precompiles, concatenates and minify all assets, performing unit tests followed by headless browser integration and funtional tests.
-        
-        h3 Deployment
-        
-        p Once local testing and building is complete, the code is sent to a remote repository and automated integration facility. Here code from all developers is integrated and tested against the live repository.
-        
-        p If all test pass, green light is given to deploy upgrades to a testing server. On the testing server, automated browser tests are provided and if tests pass upgrades are finally deployed to a staging server with live data in order to perform User Testing.
-        
-        p Periodically, staging enviroments are deployed to production enviroments in order to finally send code to live servers.
-          
-          
-        h2 Setup
-        
-        p In order to setup the environment, developers should have the following dependencies pre-installed.
-        
-        ul
-          li Ruby 1.9.3++ ( on Mac requires XCode or XCode CLT )
-          li NodeJS 0.8.0++ and NPM
-          li Text Editor
-          li Chrome Web Browser
-          
-        p Developer should also have accounts with the following services
-        ul
-          li Amazon Web Services
-          li Github
-          
-        h3 Cloning
-        
-        p If Appbot has already created the enterprise platform, then all you need to do is clone the Frontend Server Repository into your development box ( aka: computer )
-
-        code $ git clone [repositoryURL]
-        p This will "download" the code into your computer on the folder [respositoryName]
-
-        p Once the repository is clone, and inside the server folder run:
-        code $ npm install . //make require sudo
-        p This will install all necessary dependencies using NPM
-
-        h3 Testing
-        
-        p Testing, according to TDD is the first thing that must be done. So let's test out code first.
-        code $ grunt test
-        p This command will run all necessary test
-        
-        p Now we want to always have a terminal tab open with automated testing when any files change.
-        code $ grunt watch test
-
-
-        h3 Running
-        
-        p In order to run the application on the local environment, the first step we must take is to add the environment variables so that we can connect to the Api Server and such. Edit the configuration file and type all required Environment Variables
-        code $ mate .configuration
-        p Ask your team coordinator if you don't know the environment variables.
-
-        p Start the Server
-        code $ grunt server 
-        p We are starting a simple web server and a watch process to automatically compile ....
-
-        p Open localhost:9900 in order to view the index page of the Application.
-
-        h3 Deploying
-        
-        p Before deploying we must make sure all of our test pass and that it's got above 80% coverage.
-        
-        p In order to deploy we must use git to send the changes to the origin repository.
-        
-        code $ git push origin master
-        p Note the proper use of Git is required in terms of commits and branches.
-        
-        p Once the origin repository gets the code it will merge it with the actual state of the repository and the run all test.
-
-
-
-
+    
+    
+    
+   

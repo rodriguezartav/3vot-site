@@ -6,3 +6,7 @@ deploy:
   provider: heroku
   api_key: 02c1f6c9eef107695be651a70952dca8588f4bd6
   app: rodco-appbot-doc
+before_install:
+  - gem update --system
+  - gem install sass
+  - npm install -g grunt-cli  

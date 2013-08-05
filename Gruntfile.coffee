@@ -1,10 +1,11 @@
 module.exports = (grunt) ->
 
-  
+#  var build = "asjhdk"
+
   grunt.initConfig
     
     clean:
-      tests: ['public/style','lib','test/unit']
+      tests: ['public/style','public/script','test/unit/*.js']
 
     copy: 
       main: 
@@ -14,22 +15,39 @@ module.exports = (grunt) ->
       development: {
         options: {},
         files: {
-          "./public/style/application.css" : "./css/index.less"
+          "./public/devBuild/application.css" : "./css/index.less"
         }
       },
     }
-    
-    articles:
-      createJson:
-        options:
-          src: "./views/articles"
-          dest: "./articles.json"
+
+    appbot_scout: {
+      dev: {
+        options: {
+        },
+        build: "script",
+        path: "",
+        destination: "./public/scout.js",
+        template: "./public/scoutTemplate.eco"
+      },
+    },
+
+    grunt_appbot_compiler: {
+      oneApp: {
+        appPaths: ['./app/blue'],
+        dependencyPaths: ["jqueryify","spine"],
+        destination: "./public/devBuild/blueApp.js"
+      },
+      contentBox:{
+        appPaths: ['./app/components/contentBox'],
+        destination: "./public/devBuild/contentBox.js"
+      }
+    },
 
     coffee:
       testFiles:
         expand: true,
         flatten: true,
-        cwd: './test/unit-src',
+        cwd: './test/unit/src',
         src: ['*.coffee'],
         dest: './test/unit/',
         ext: '.js'        
@@ -41,15 +59,47 @@ module.exports = (grunt) ->
         src: ['test/unit/*.js']
         
     watch:
-      source:
-        files: ["./css/*.less"]
+      css:
+        files: ["./css/*.less","./css/**/*.less"]
         tasks: ["less"]
+      apps:
+        files: ["./app/**/*.coffee" ,"./app/**/*.eco","./app/**/*.jeco","./app/**/*.less"]
+        tasks: ["grunt_appbot_compiler","appbot_scout"]
+      views:
+        files: ["./views/*.jade","./views/**/*.jade"]
+        tasks: ["jade"]
 
-  grunt.loadTasks("./grunt-articles/tasks")
+
+    jade: 
+      compile: 
+        files:
+          "./public/index.html": ["./views/index.jade"]
+          "./public/gettingstarted.html": ["./views/gettingstarted.jade"]
+          "./public/frontend.html": ["./views/frontend.jade"]
+          "./public/standards.html": ["./views/standards.jade"]
+
+        options: {
+          data: {
+            build: "devBuild"
+            path: ""
+          }
+        }
+
+    
+
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-appbot-scout');
+
+  grunt.loadNpmTasks('grunt-appbot-compiler');
+  grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-contrib-jade');
+
+  grunt.registerTask('test', ["clean",'coffee',"grunt_appbot_compiler","mochaTest"]);   
+
+  grunt.registerTask('build', ["test",'coffee',"grunt_appbot_compiler","appbot_scout"]);   
 
   
   grunt.registerTask('default', ['clean','coffee', "copy" , 'mochaTest']);   

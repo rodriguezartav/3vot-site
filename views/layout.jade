@@ -2,10 +2,19 @@ doctype 5
 html
   head
     title= title
-    link(rel='stylesheet', href='/style/application.css')
-    script(src="http://code.jquery.com/jquery-2.0.3.min.js")
-    script(src="/script/dropdown.js")
-    
+    link(rel="stylesheet", type="text/css", href="#{path}/#{build}/application.css")
+
+    script(src="#{path}/#{build}/blueApp.js")
+
+    script(type='text/javascript', charset='utf-8').
+      var jQuery  = require("jqueryify");
+      var exports = this;
+      jQuery(function(){
+        var App = require("index");
+        exports.app =  new App({ el: $("body") }); 
+      });
+
+
   body.fullHeight
     include components/header
     block content
