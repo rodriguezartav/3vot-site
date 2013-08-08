@@ -10,12 +10,12 @@
     "express": "3.3.1",
     "jade": "*",
     "less": "*",
-    "appbot-compiler": "latest",
     "jqueryify": "latest",
     "spine": "latest"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.6.0",
+    "appbot-compiler": "latest",
     "grunt-contrib-clean": "~0.4.0",
     "grunt-contrib-nodeunit": "~0.2.0",
     "grunt-contrib-watch": "latest",
