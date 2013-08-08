@@ -10046,7 +10046,7 @@ module.exports = window.jQuery;
 
     function App() {
       App.__super__.constructor.apply(this, arguments);
-      LazyLoad.js("/devBuild/contentBox.js", function() {
+      LazyLoad.js("" + window.src.path + "/" + window.src.build + "/contentBox.js", function() {
         var ContentBox;
         require("lib/setup");
         ContentBox = require("components/contentBox/contentBox");

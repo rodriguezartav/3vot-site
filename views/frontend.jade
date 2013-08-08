@@ -12,13 +12,23 @@ block content
 
     article
       h2 Overview
-      p The Frontend is the most magical and important piece of the Platform; here is where all the users will hang out and do all that wonderful stuff with your platform. It's a professional frontend in that sense that it uses the best practices for modern application development and deployment.
+      p The Application Frontend is the most important asset; here is where the users will spend their time. It's a professional frontend in that sense that it uses the best practices for modern application development methodologies.
     
       h5 Appbot is amazing, it provides a professional workflow based on the Grunt Toolset of automated Tasks. 
       
-      p With Appbot our development enviroment works for us, changes on code are compiled from Coffeescript, Less and Jade and compiled automatically. A complete and simple Unit/Functional and Integration Testing suite is integrated on the development process.
+      p With Appbot our development environment works for us, changes on code are compiled from Coffeescript, Less and Jade automatically. A complete and simple Unit, Functional and Integration Testing suite runs seamlessly along the development process.
       
-      p Best practices for Javascript and CSS Modular Development are baked into the development enviroment, so that it's not only easy to employ good programming technichs, but also that's cleatly better.
+      h4 You'll be amazed at Live Reloading, any change on the code is automatically send and reloaded on the browser.
+      
+      p Best practices for Javascript and CSS Modular Development are baked into the development environment, so that it's not only easy to employ good programming techniques, but also that's clearly better.
+      
+      p The Application Frontend uses a custom Enterprise Grade MVC Framework, we have used dozens of Frontend MVC's and found most of them are focused on building prototype apps. They are great thou, we used them as a base for AppBot Enterprise MVC. The Frontend is a modular application and uses CommonJS to pack
+      
+      
+      h2 Test Drive
+      p The best way to get to know the system is to work with it, on the next section you'll be able to understand each part.
+      
+      p Let's start by cloning this documentation into the local development
       
       h3 Javascript
       p Actually the frontend is build with Coffeescript ( optional ) packed in CommonJS Modules (non-optional) and structured using the SpineJS Framework. This are hard decisions, we hope you trust us to show you why we believe this are good decisions that will make your development experience better.
@@ -78,20 +88,41 @@ block content
 
       h3 Getting the Code
       p Once you are done, you must pull the master repository of the Appbot Platform your team is working one.
-      code git pull []
+      code git clone https://github.com/rodriguezartav/rodco-appbot-doc
     
       p Install all necessary dependencies with npm from within the source code root folder.
       code $ npm install .
-      p May require to use sudo 
+      p May require to use $sudo 
     
       p Start the server and check http://localhost:3000
       code $ grunt server
     
     
       h3 About Testing
-      p Test are the most important part of the system
+      p Test are the most important part of the system, Appbot has an excelent testing framework that allows for simple unit testing of the client side. Testing are based on Mocha and Grunt with ShouldJS and other testing libraries and helpers.
+      
+      p To run test use the following command
+      code $ grunt test
+      
+      p The test writing process should be defined and stated on a clear matter. We test everything, and hope for 100% Test Coverage. 
+      
+      p Unit Test prove that the isolated code on each file works according to whats expected. Each time a file is created or update, a test should have been created or update before hand.
+      
+      p Functional Test work at a higher level, where multiple components interact with each other. All Interactions of components should be testing. For this test we insantiate an app and make tests on a headless browser.
+      
+      p Integration Test are there to verify that the system is healty, integration test must be written when we know there is a vulnerable part of code that could no be written with the best encapsulation and separation of concerns, thus is vulnerable and by including it on a test we make sure that any change on the code that would break App Behavior will be detected by the testing framework.
+      
+      p Review the Unit, Functional and Integration Test of this Documentation to get a guide on how to proceed with creation or update of tests.
       
       h3 Writing Components
+      p Since the best practice is to write components for every part of the application in an encapsulated manner, you'll be writing components all day.
+      
+      p To write a component first create a file named appbotComponent.json and with the text
+      code "namespace":"[COMPONENT UNIQUE NAME GOES HERE]"
+      
+      p Then you can create .coffee, .eco and .less files, they will get compiled automatically when included on a Build.
+      
+      
       
       h2 MVC Framework
       p In order to work on a profesional enterprise application, developers should be highly experiences on MVC Frontend Frameworks, if not proces with much care understanding that at least three months of lossness and frustrations while learning lie ahead. Make sure you have enought time to study , read , watch screencast and practice on your own apps outside of Appbot since it's too complex for a junior developer to get started on.

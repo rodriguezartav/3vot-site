@@ -1,6 +1,17 @@
+class Helper
+  
+  @randomChars: (len) ->
+    chars = '';
+
+    while (chars.length < len) 
+      chars += Math.random().toString(36).substring(2);
+
+    return chars.substring(0, len);
+
+
 module.exports = (grunt) ->
 
-#  var build = "asjhdk"
+  build = Helper.randomChars(5)
 
   grunt.initConfig
     
@@ -11,14 +22,10 @@ module.exports = (grunt) ->
       main: 
         files: [ "./lib/template.eco" : "./src/template.eco" ]
 
-    less: {
-      development: {
-        options: {},
-        files: {
+    less:
+      development:
+        files:
           "./public/devBuild/application.css" : "./css/index.less"
-        }
-      },
-    }
 
     appbot_scout: {
       dev: {
@@ -62,44 +69,83 @@ module.exports = (grunt) ->
       css:
         files: ["./css/*.less","./css/**/*.less"]
         tasks: ["less"]
+
       apps:
         files: ["./app/**/*.coffee" ,"./app/**/*.eco","./app/**/*.jeco","./app/**/*.less"]
         tasks: ["grunt_appbot_compiler","appbot_scout"]
+
       views:
         files: ["./views/*.jade","./views/**/*.jade"]
         tasks: ["jade"]
 
-
     jade: 
-      compile: 
+      production: 
         files:
           "./public/index.html": ["./views/index.jade"]
           "./public/gettingstarted.html": ["./views/gettingstarted.jade"]
           "./public/frontend.html": ["./views/frontend.jade"]
           "./public/standards.html": ["./views/standards.jade"]
+        options: 
+          data: 
+            build: build
+            path: ""
 
-        options: {
-          data: {
+      dev: 
+        files:
+          "./public/index.html": ["./views/index.jade"]
+          "./public/gettingstarted.html": ["./views/gettingstarted.jade"]
+          "./public/frontend.html": ["./views/frontend.jade"]
+          "./public/standards.html": ["./views/standards.jade"]
+          "./public/tasks.html": ["./views/tasks.jade"]
+
+        options:
+          data:
             build: "devBuild"
             path: ""
-          }
-        }
 
-    
+    express:
+      all: 
+        options:
+          port: '7770',
+          hostname: "0.0.0.0",
+          bases: ['./public'],
+          livereload: true
+
+
+    s3:
+      options: 
+        bucket: "docs-test.rodcocr.com",
+        access: 'public-read'
+
+          
+      test:
+        options:
+          encodePaths: true,
+          maxOperations: 20
+
+        upload: 
+          [
+             { src: './public/devBuild/*.*', dest: "#{build}/", gzip: true ,access: 'public-read' , headers: "Cache-Control": "max-age=30000000" }
+             { src: './public/images/*.*', dest: "#{build}/images/", gzip: true , access: 'public-read', headers: "Cache-Control": "max-age=30000000" }
+             { src: './public/*.html', dest: "", gzip: true , access: 'public-read' , headers: "Cache-Control": "max-age=300" }
+          ]
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-appbot-scout');
+  grunt.loadNpmTasks('grunt-express');
 
   grunt.loadNpmTasks('grunt-appbot-compiler');
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-contrib-jade');
+  grunt.loadNpmTasks('grunt-s3');  
 
   grunt.registerTask('test', ["clean",'coffee',"grunt_appbot_compiler","mochaTest"]);   
 
-  grunt.registerTask('build', ["test",'coffee',"grunt_appbot_compiler","appbot_scout"]);   
+  grunt.registerTask('build', ['coffee' , "test" , "grunt_appbot_compiler" , "jade:production","s3"]);   
 
+  grunt.registerTask('server', ['express','watch']);
   
   grunt.registerTask('default', ['clean','coffee', "copy" , 'mochaTest']);   

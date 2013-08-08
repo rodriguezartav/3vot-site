@@ -153,7 +153,7 @@
   }
   (function() {
     (function() {
-      __out.push('<div class="contentBox">\n  <div class="box">\n    <span class="title">Contents</span>\n    <div class="content"></div>\n  </div>\n</div>');
+      __out.push('<div class="contentBox">\n  <div class="box">\n    <span class="title">Table of Contents</span>\n    <div class="content"></div>\n  </div>\n</div>');
     
     }).call(this);
     
