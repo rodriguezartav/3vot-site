@@ -146,6 +146,6 @@ module.exports = (grunt) ->
 
   grunt.registerTask('build', ['coffee' , "test" , "grunt_appbot_compiler" , "jade:production","s3"]);   
 
-  grunt.registerTask('server', ['express','watch']);
+  grunt.registerTask('server', ["jade:dev" , 'express','watch']);
   
   grunt.registerTask('default', ['clean','coffee', "copy" , 'mochaTest']);   

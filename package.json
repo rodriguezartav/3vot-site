@@ -20,6 +20,7 @@
     "grunt-contrib-nodeunit": "~0.2.0",
     "grunt-contrib-watch": "latest",
     "grunt-contrib-sass": "~0.4.1",
+    "grunt-contrib-less": "latest",
     "grunt-appbot-compiler": "latest",
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-appbot-scout": "latest",
