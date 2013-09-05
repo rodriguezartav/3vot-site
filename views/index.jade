@@ -2,34 +2,29 @@ extends layout
 
 block content
   
-  .constrained
+  .container
+    .row
+      .col-md-8.col-md-offset-2.splash
+        span.title.textCenter The Future of Apps
+        span.slogan in a business platform
+         
+      .row.video.clearfix
+        .col-md-8.col-md-offset-2.
+          <iframe width="100%" height="390" src="http://www.youtube.com/embed/OKOrkLxOBoY" frameborder="0" allowfullscreen></iframe>
+    
+      .row
+        .col-md-8.col-md-offset-2.callToAction
+          .innerBox.clearfix
+            .col-md-7
+              span.title Business Platforms Available
+              span.slogan innovate by reservering yours today
+              span.info Launching November 2013 @ Dreamforce
 
-    .breadcrum
-      .title Welcome to Rodco Appbot
+            .col-md-4.col-md-offset-1
+        
+              input.form-control.input-lg(placeholder="Email Address",style="margin-bottom: 5px;")
+        
+              button(type="button").btn.btn-warning.btn-lg.btn-block Reserve ME a platform
 
-    aside
 
-    article
-      h4 The only Enterprise Platform to be designed with simplicity and customisation in mind.
-      p Appbot is a smart robot that builds highly available and scalable infrastructures in seconds. 
-      p After building the platform teams can customize AppBot's Enterprise Platform to solve any problem.
-      
-      h2 Principles
-      p Software is the driving force of innovation
-      p Innovation occurs when an organisation can iterate quickly to find it's path before the competition
-      p An innovative organisation must operate with a team who's main objetive is to iterate quickly
-      p To iterate quickly, software must be 100% customizable.
-      
-      h2 Approach
-      p Appbot is build on top of work from the Open Source Community, the best of the best!
-      p The architecture is based on a Centralized Api Approach, like the Obama Campaing for America
-      p The infrastructure runs on Cloud Computing Champion Amazon Web Services
-      h4 Appbot is about being the best of the best
-      
-      h2 Solution
-      p Appbot solves the enterprise dilemma by defining a new paradigm for Enterprise Software. 
-      p Organizations should build their own software and that software reason to exist should be to be modified.
-      h4 Appbot builds the complete infrastructure to handle one to millions of visitors, pay for what you use.
-      h4 Appbot help build and guide teams to customise the platform and innovate with software
-      h3 Appbot is great!
-      hr
+  

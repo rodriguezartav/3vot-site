@@ -97,6 +97,7 @@ module.exports = (grunt) ->
           "./public/frontend.html": ["./views/frontend.jade"]
           "./public/standards.html": ["./views/standards.jade"]
           "./public/tasks.html": ["./views/tasks.jade"]
+          "./public/api.html": ["./views/api.jade"]
 
         options:
           data:
@@ -114,8 +115,10 @@ module.exports = (grunt) ->
 
     s3:
       options: 
-        bucket: "docs-test.rodcocr.com",
-        access: 'public-read'
+        bucket: "3vot.com",
+        access: 'public-read',
+        key: 'AKIAIAEJQ6AK67WGAMOQ',
+        secret: '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'
 
           
       test:

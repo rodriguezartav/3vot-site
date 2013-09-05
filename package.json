@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "3vot-site",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -34,8 +34,6 @@
     "jquery-browserify": "latest",
     "sandboxed-module": "latest",
     "grunt-mocha": "~0.4.1",
-    "mocha-phantomjs": "latest",
-    "phantomjs": "latest",
     "supertest": "latest",
     "grunt-contrib-jade": "~0.8.0",
     "grunt-s3": "~0.2.0-alpha.2",
