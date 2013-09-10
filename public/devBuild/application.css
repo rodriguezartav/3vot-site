@@ -8,7 +8,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Dosis', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -5983,13 +5983,20 @@ td.visible-print {
   }
 }
 body {
-  background-color: #fcfcfc;
+  background-color: #efefef;
+  background-image: -webkit-gradient(linear, left 5%, left 100%, from(#ffffff), to(#cccccc));
+  background-image: -webkit-linear-gradient(top, #ffffff, 5%, #cccccc, 100%);
+  background-image: -moz-linear-gradient(top, #ffffff 5%, #cccccc 100%);
+  background-image: linear-gradient(to bottom, #ffffff 5%, #cccccc 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffcccccc', GradientType=0);
 }
 header {
-  padding: 0px 0px 2px 0px;
+  padding: 10px 0px 10px 0px;
+  margin-top: 0px;
+  margin-bottom: 25px;
 }
 .splash {
-  margin-top: 20px;
   margin-bottom: 20px;
 }
 .callToAction .innerBox {
@@ -6002,8 +6009,15 @@ footer {
   padding-top: 10px;
   margin-bottom: 20px;
 }
-.nav-bar {
-  background-color: #45bbe7;
+header {
+  background-color: #efefef;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#cccccc), to(#ffffff));
+  background-image: -webkit-linear-gradient(top, #cccccc, 0%, #ffffff, 100%);
+  background-image: -moz-linear-gradient(top, #cccccc 0%, #ffffff 100%);
+  background-image: linear-gradient(to bottom, #cccccc 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffcccccc', endColorstr='#ffffffff', GradientType=0);
+  border-bottom: 3px solid #efac43;
 }
 .nav-bar a {
   color: #fff;
@@ -6013,14 +6027,20 @@ footer {
 .nav-bar .logo {
   display: inline-block;
   font-size: 35px;
-  color: #fff;
+  color: #6d6e70;
+  margin-right: 4px;
+  font-weight: 300;
+  font-family: 'Dosis';
 }
 .nav-bar .slogan {
+  margin-left: 6px;
   display: inline-block;
-  color: #fff;
-  font-size: 11px;
+  color: #a7a9ab;
+  font-size: 16px;
   text-transform: uppercase;
-  line-height: 10px;
+  line-height: 16px;
+  font-weight: 200;
+  font-family: 'Dosis';
 }
 .nav-bar .link {
   display: inline-block;
@@ -6045,45 +6065,88 @@ footer {
   font-size: 14px;
   padding-bottom: 30px;
 }
+.splash {
+  position: relative;
+}
+.splash .icon {
+  font-family: 'Dosis';
+  position: relative;
+  left: -30px;
+  display: inline-block;
+  font-size: 35px;
+  line-height: 39px;
+  color: #fff;
+  font-weight: 200;
+  background-color: #efac43;
+  border-top-right-radius: 100px;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  padding: 10px 12px;
+}
 .splash .title {
+  text-shadow: 1px 1px #fff;
+  font-family: 'Dosis';
+  font-weight: 300;
+  position: relative;
+  left: -25px;
   display: inline-block;
-  font-size: 50px;
-  line-height: 50px;
-  color: #3e89c9;
+  font-size: 39px;
+  line-height: 40px;
+  color: #6d6e70;
 }
-.splash .slogan {
-  margin-left: 7px;
+.splash .subTitle {
+  font-family: 'Dosis';
+  font-weight: 300;
+  width: 100%;
+  position: relative;
+  left: -25px;
   display: inline-block;
-  font-size: 30px;
-  line-height: 30px;
-  color: #b9d4ec;
+  font-size: 39px;
+  line-height: 40px;
+  color: #6d6e70;
+  text-align: right;
 }
-.callToAction .innerBox {
-  background-color: #1ca8dd;
-  border: 2px solid #7eb0db;
-  -webkit-box-shadow: 1px 1px 4px #333333;
-  box-shadow: 1px 1px 4px #333333;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+.callToAction {
+  margin-top: 20px;
 }
 .callToAction .title {
-  display: inline-block;
+  font-family: 'Dosis';
+  font-weight: 300;
+  display: block;
   margin-right: 8px;
-  font-size: 30px;
-  line-height: 25px;
-  color: #fff;
+  margin-top: 2px;
+  font-size: 35px;
+  line-height: 35px;
+  color: #6d6e70;
+  text-shadow: 1px 1px #ggg;
+  text-align: right;
 }
 .callToAction .slogan {
-  display: inline-block;
-  font-size: 22px;
-  line-height: 22px;
-  color: #f6ce95;
-  margin-left: 10px;
+  position: relative;
+  right: -35px;
+  font-family: 'Dosis';
+  font-weight: 100;
+  display: block;
+  font-size: 20px;
+  line-height: 35px;
+  color: #efac43;
+  text-align: right;
+}
+.callToAction input {
+  font-family: 'Dosis';
+  font-size: 20px;
+}
+.callToAction button.btn-warning {
+  font-family: 'Dosis';
+  background-color: #efac43;
+  border-color: #f1b65b;
 }
 .callToAction .info {
   display: block;
-  color: #fff;
+  color: #a7a9ab;
   margin-top: 20px;
+  font-family: 'Dosis';
 }
 footer {
   border-top: 1px solid #999;
