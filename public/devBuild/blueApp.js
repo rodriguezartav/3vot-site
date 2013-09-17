@@ -10032,6 +10032,7 @@ module.exports = window.jQuery;
 }).call(this);
 }, "index": function(exports, require, module) {(function() {
   var App, HeaderLink, Spine,
+    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -10044,8 +10045,20 @@ module.exports = window.jQuery;
   App = (function(_super) {
     __extends(App, _super);
 
+    App.prototype.elements = {
+      ".after_send": "after_send",
+      ".email_input": "email_input",
+      ".sendEmail": 'sendEmail'
+    };
+
+    App.prototype.events = {
+      "click .sendEmail": "onSendEmailClick"
+    };
+
     function App() {
+      this.onSendEmailClick = __bind(this.onSendEmailClick, this);
       App.__super__.constructor.apply(this, arguments);
+      this.after_send.hide();
       LazyLoad.js("" + window.src.path + "/" + window.src.build + "/contentBox.js", function() {
         var ContentBox;
         require("lib/setup");
@@ -10057,6 +10070,15 @@ module.exports = window.jQuery;
         });
       });
     }
+
+    App.prototype.onSendEmailClick = function() {
+      this.after_send.show();
+      this.sendEmail.hide();
+      $.post("http://vot3-server.herokuapp.com/email", {
+        user_email: this.email_input.val()
+      });
+      return this.email_input.val("");
+    };
 
     return App;
 

@@ -5982,7 +5982,7 @@ td.visible-print {
     display: none !important;
   }
 }
-body {
+.splashContainer {
   background-color: #efefef;
   background-image: -webkit-gradient(linear, left 5%, left 100%, from(#ffffff), to(#cccccc));
   background-image: -webkit-linear-gradient(top, #ffffff, 5%, #cccccc, 100%);
@@ -5990,11 +5990,12 @@ body {
   background-image: linear-gradient(to bottom, #ffffff 5%, #cccccc 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffcccccc', GradientType=0);
+  min-height: 600px;
 }
 header {
   padding: 10px 0px 10px 0px;
   margin-top: 0px;
-  margin-bottom: 25px;
+  margin-bottom: 55px;
 }
 .splash {
   margin-bottom: 20px;
@@ -6004,10 +6005,9 @@ header {
   margin-bottom: 10px;
   padding: 19px 7px;
 }
-footer {
-  margin-top: 90px;
-  padding-top: 10px;
-  margin-bottom: 20px;
+.aboutContainer {
+  border-top: #fff 2px solid;
+  background-color: #333;
 }
 header {
   background-color: #efefef;
@@ -6071,7 +6071,7 @@ header {
 .splash .icon {
   font-family: 'Dosis';
   position: relative;
-  left: -30px;
+  left: -15px;
   display: inline-block;
   font-size: 35px;
   line-height: 39px;
@@ -6084,28 +6084,16 @@ header {
   border-bottom-left-radius: 100px;
   padding: 10px 12px;
 }
-.splash .title {
+.splash h1 {
   text-shadow: 1px 1px #fff;
   font-family: 'Dosis';
   font-weight: 300;
   position: relative;
-  left: -25px;
   display: inline-block;
   font-size: 39px;
   line-height: 40px;
+  margin-top: 9px;
   color: #6d6e70;
-}
-.splash .subTitle {
-  font-family: 'Dosis';
-  font-weight: 300;
-  width: 100%;
-  position: relative;
-  left: -25px;
-  display: inline-block;
-  font-size: 39px;
-  line-height: 40px;
-  color: #6d6e70;
-  text-align: right;
 }
 .callToAction {
   margin-top: 20px;
@@ -6147,6 +6135,71 @@ header {
   color: #a7a9ab;
   margin-top: 20px;
   font-family: 'Dosis';
+}
+.about {
+  padding-top: 45px;
+}
+.about .title {
+  color: #fff;
+  text-align: center;
+  font-family: 'Dosis';
+  font-size: 45px;
+}
+.about .subTitle {
+  color: #fff;
+  text-align: right;
+  font-family: 'Dosis';
+  font-size: 20px;
+  line-height: 14px;
+  padding-right: 100px;
+}
+.about .intro {
+  margin-top: 60px;
+}
+.about .intro .text {
+  color: #fff;
+  text-align: left;
+  font-family: 'Dosis';
+  font-weight: 300;
+  font-size: 25px;
+}
+.about .contactUs {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 7px;
+  margin-top: 60px;
+  color: #efac43;
+  text-align: center;
+  font-family: 'Dosis';
+  font-weight: 300;
+  font-size: 20px;
+}
+.about .contactUs .line2 {
+  font-size: 27px;
+  color: #bbb;
+}
+.about .contactUs a {
+  color: #bbb;
+}
+.about .ending {
+  margin-top: 60px;
+  margin-bottom: 25px;
+  color: #fff;
+  text-align: center;
+  font-family: 'Dosis';
+  font-size: 35px;
+}
+.about h2 {
+  color: #fff;
+  text-align: center;
+  font-family: 'Dosis';
+}
+.about p {
+  color: #fff;
+  text-align: left;
+  padding: 0px 20px;
+}
+.about .icon {
+  background-color: #666;
 }
 footer {
   border-top: 1px solid #999;

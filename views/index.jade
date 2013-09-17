@@ -1,32 +1,56 @@
 extends layout
 
 block content
-  
-  .container
-    .row
-      .col-md-2.splash
-        .icon R2
-        span.title The [Future]
-        span.subTitle of Apps
-
-      .col-md-8
-        .video.clearfix.
-          <iframe width="100%" height="390" src="http://www.youtube.com/embed/1H7_ROlKWls" frameborder="0" allowfullscreen></iframe>
-    
+  .splashContainer
+    .container
       .row
-        .col-md-8.col-md-offset-2.callToAction
-          .innerBox.clearfix
-            .col-md-7
-              span.title We want to study your case
-              span.slogan WE WILL ADJUST R2 FOR YOU
-              span.info Launching November 2013 @ Dreamforce
+        .col-md-2.splash
+          .icon R2
+          h1 Web & Mobile <span class="subTitle">Platform</span> 
+            
 
-            .col-md-4.col-md-offset-1
+        .col-md-8
+          .video.clearfix.
+            <iframe width="100%" height="390" src="http://www.youtube.com/embed/1H7_ROlKWls" frameborder="0" allowfullscreen></iframe>
+
+        .row
+          .col-md-8.col-md-offset-2.callToAction
+            .innerBox.clearfix
+              .col-md-7
+                span.title We want to study your case
+                span.slogan FREE WEB & MOBILE CONSULTANTS
+                span.info Launching November 2013 @ Dreamforce
+
+              .col-md-4.col-md-offset-1
         
-              input.form-control.input-lg(placeholder="Email Address[no spam]",style="margin-bottom: 5px;")
-              .help 
+                input.form-control.input-lg.email_input(placeholder="Email Address[no spam]",style="margin-bottom: 5px;")
+                .help 
         
-              button(type="button").btn.btn-warning.btn-lg.btn-block START A CONVERSATION
+                button.sendEmail(type="button").btn.btn-warning.btn-lg.btn-block START A CONVERSATION
+                span.help-block.after_send THANK YOU, WE'LL TALK SOON!
 
 
-  
+
+  .aboutContainer
+    .container.about
+      .row
+        .col-md-2.splash
+          .icon R2
+      
+        .col-md-8
+          .title Web + Mobile Platforms
+          .subTitle for Business
+
+          .row.intro
+            .col-md-5
+              .text We built R2 to empower you to <br/>build Web, Mobile & Social Apps
+            .col-md-5.col-md-offset-2
+              .text Simply make them available via your Web & Mobile Platform
+            
+          .row.contactUs
+            
+            .line1 Looking for Early Adopters while we define our Business Model.
+          
+            .line2 Let's have an interesting talk >> <a target="_blank" href="mailto:early.adopter@3vot.com">early.adopter@3vot.com</a>
+          
+          .ending Thank You
